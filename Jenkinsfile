@@ -26,7 +26,7 @@ pipeline {
                 script {
                     bat "mvn clean test"
                 }
-                testNG(reportFilenamePattern: '**/testng-many-results.xml')
+
             }
           }
 
@@ -38,6 +38,12 @@ pipeline {
                 }
             }
           }
+     }
+
+     post {
+        always {
+            cleanWs()
+        }
      }
 
 }
