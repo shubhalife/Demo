@@ -20,5 +20,14 @@ pipeline {
                 }
             }
           }
+
+          stage('Build Images') {
+            steps {
+                bat 'mvn clean package'
+                script {
+                    def image = docker.build('demo-service')
+                }
+            }
+          }
      }
 }
