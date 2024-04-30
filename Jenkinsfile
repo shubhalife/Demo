@@ -26,7 +26,7 @@ pipeline {
                 script {
                     bat "mvn clean test"
                 }
-                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+                testNG(reportFilenamePattern: '**/testng-many-results.xml')
             }
           }
 
@@ -40,8 +40,6 @@ pipeline {
           }
      }
      post {
-        always {
-            cleanWs()
-        }
+
      }
 }
