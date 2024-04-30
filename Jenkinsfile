@@ -45,7 +45,7 @@ pipeline {
             }
           }
 
-          stage('push Image to dockerhub') {
+          stage('Deploy Service') {
             steps {
                 bat 'kubectl rollout restart deployment demo-service -n app'
             }
