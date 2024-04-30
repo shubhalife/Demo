@@ -30,12 +30,24 @@ pipeline {
             }
           }
 
-          stage('Build Images') {
+          stage('Build Image') {
             steps {
                 bat 'mvn clean package'
                 script {
                     def image = docker.build('neocode1/demo-service')
                 }
+            }
+          }
+
+          stage('push Image to dockerhub') {
+            steps {
+                bat 'docker push neocode1/demo-service'
+            }
+          }
+
+          stage('push Image to dockerhub') {
+            steps {
+                bat 'kubectl rollout restart deployment demo-service -n app'
             }
           }
      }
