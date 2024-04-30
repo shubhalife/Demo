@@ -42,6 +42,6 @@ spec:
       name: demo-service
     spec:
       containers:
-        - image: demo-service
+        - image: demo-service:latest
           name: demo-service-container
           imagePullPolicy: Always
