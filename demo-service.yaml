@@ -21,7 +21,7 @@ metadata:
   name: demo-service
   namespace: app
   labels:
-    app: erp-bs-wa-fe-app
+    app: demo-service-app
 spec:
   replicas: 1
   selector:

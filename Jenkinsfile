@@ -34,7 +34,7 @@ pipeline {
             steps {
                 bat 'mvn clean package'
                 script {
-                    def image = docker.build('demo-service')
+                    def image = docker.build('neocode1/demo-service')
                 }
             }
           }
