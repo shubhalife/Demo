@@ -21,6 +21,15 @@ pipeline {
             }
           }
 
+          stage('Unit Testing') {
+            steps {
+                script {
+                    bat "mvn clean test"
+                }
+                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+            }
+          }
+
           stage('Build Images') {
             steps {
                 bat 'mvn clean package'
