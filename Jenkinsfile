@@ -33,7 +33,7 @@ pipeline {
           stage('SAST') {
             steps {
                 script {
-                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_75118c225eb2bc05608c357d5042c555b936cb0b"
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=demo-service -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_e9ec4696f5732360574b37aef237a7cee07f5a50"
                 }
 
             }
