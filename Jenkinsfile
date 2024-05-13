@@ -30,6 +30,17 @@ pipeline {
             }
           }
 
+          stage('SAST') {
+            steps {
+                script {
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_75118c225eb2bc05608c357d5042c555b936cb0b"
+                }
+
+            }
+          }
+
+          
+
           stage('Build Image') {
             steps {
                 bat 'mvn clean package'
